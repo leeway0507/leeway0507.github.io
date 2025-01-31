@@ -1,6 +1,5 @@
 import { PostCardGroup } from "@/components/post-card";
 import { getAllPosts } from "@/lib/api";
-import Nav from "@/components/common/nav";
 
 export default async function Index({ params }: { params: { slug: string } }) {
   const allPosts = getAllPosts();

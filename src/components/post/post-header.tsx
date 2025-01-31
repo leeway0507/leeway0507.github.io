@@ -8,9 +8,9 @@ type Props = {
 
 export function PostHeader({ title, date, category }: Props) {
   return (
-    <header className="mx-auto py-8 border-b">
+    <header className="mx-auto py-8 ">
       <PostInfo date={date} category={category} />
-      <h1 className="text-2xl md:text-3xl font-semibold text-nav">{title}</h1>
+      <h1 className="text-2xl md:text-3xl font-semibold ">{title}</h1>
     </header>
   );
 }

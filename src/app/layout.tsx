@@ -68,9 +68,9 @@ export default function RootLayout({
         <meta name="theme-color" content="#000" />
         <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       </head>
-      <body className={`${font.className} h-lvh flex flex-col w-full`}>
+      <body className={`h-lvh flex flex-col w-full `}>
         <Nav />
-        <div className="pt-[55px] px-2 mx-auto w-full text-black/95  grow">
+        <div className="pt-[55px] px-2 mx-auto w-full grow">
           {children}
         </div>
         <Footer />

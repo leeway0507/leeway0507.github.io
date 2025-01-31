@@ -24,21 +24,23 @@ export function PostBody({ content }: Props) {
         dangerouslySetInnerHTML={{ __html: content }}
       />
 
-      <Giscus
-        id="comments"
-        repo="yangoos57/yangoos57.github.io"
-        repoId="R_kgDOIDaSkA"
-        category="comments"
-        categoryId="DIC_kwDOIDaSkM4CgqOT"
-        mapping="pathname"
-        term="Welcome to @giscus/react component!"
-        reactionsEnabled="1"
-        emitMetadata="0"
-        inputPosition="top"
-        theme="light"
-        lang="en"
-        loading="lazy"
-      />
+      <div className="pt-8">
+        <Giscus
+          id="comments"
+          repo="leeway0507/leeway0507.github.io"
+          repoId="R_kgDOIDaSkA"
+          category="comments"
+          categoryId="DIC_kwDOIDaSkM4CgqOT"
+          mapping="pathname"
+          term="Welcome to @giscus/react component!"
+          reactionsEnabled="1"
+          emitMetadata="0"
+          inputPosition="top"
+          theme="dark"
+          lang="en"
+          loading="lazy"
+        />
+      </div>
     </main>
   );
 }
