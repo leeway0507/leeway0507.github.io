@@ -1,0 +1,142 @@
+.markdown {
+  @apply leading-relaxed md:text-lg;
+}
+
+.markdown p {
+  @apply py-5 text-justify break-all
+}
+.markdown p code {
+  @apply bg-main px-1 py-1 mx-1 text-blue-800 
+}
+
+.markdown ul,
+.markdown ol,
+.markdown blockquote {
+  @apply my-6;
+}
+
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4{
+  @apply mt-10 leading-snug text-nav/95 font-medium;
+}
+.markdown h2 {
+  @apply text-2xl
+}
+.markdown h3{
+  @apply text-xl
+}
+
+.markdown h4{
+  @apply text-lg
+}
+
+
+.markdown strong {
+  @apply text-nav font-medium
+}
+
+.markdown pre {
+  @apply overflow-auto
+}
+
+.markdown a {
+  @apply text-nav underline cursor-pointer hover:text-blue-700 transition-all duration-500
+}
+
+.markdown ul  {
+  @apply  ps-4 lg:ps-8
+}
+.markdown ul > li {
+  @apply  list-disc
+}
+.markdown ul > li > p {
+  @apply  py-1
+}
+
+.markdown pre {
+  @apply bg-main rounded p-4 mb-8
+}
+.markdown code {
+  @apply text-sm
+}
+
+.markdown figure[data-rehype-pretty-code-figure] {
+  @apply pb-6
+}
+.markdown figure[data-rehype-pretty-code-figure] pre {
+  @apply rounded-lg mb-0
+}
+
+.markdown figure[data-rehype-pretty-code-figure] code {
+  @apply px-6 py-4
+}
+
+.markdown span[data-line] {
+  @apply text-xs md:text-sm pb-1
+}
+
+.markdown tbody{
+  @apply gap-1
+}
+
+/* blockquote */
+
+.markdown blockquote {
+  @apply border-s-4 border-nav/50 text-nav/80 ps-4 my-4
+}
+
+.markdown blockquote > p {
+  @apply py-3
+}
+
+/* table */
+
+.markdown table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  overflow: auto;
+  padding-bottom: 2.5rem;
+}
+
+.markdown td,
+.markdown th {
+  padding: 0;
+}
+
+.markdown table th {
+  font-weight: 400;
+}
+
+.markdown table th,
+.markdown table td {
+  padding: 6px 13px;
+  border: 1px solid #d0d7de;
+}
+
+.markdown table td>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown table tr {
+  background-color: #ffffff;
+  border-top: 1px solid hsla(210,18%,87%,1);
+}
+
+.markdown table tr:nth-child(2n) {
+  background-color: #f6f8fa;
+}
+
+.markdown table img {
+  background-color: transparent;
+}
+
+
+/* katex */
+.markdown .katex {
+  @apply py-4 my-4
+}
