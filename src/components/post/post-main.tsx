@@ -18,7 +18,7 @@ export function PostBody({ content }: Props) {
   }, []);
 
   return (
-    <main className=" 2xl:max-w-3xl mx-auto markdown-body">
+    <main className=" 2xl:max-w-3xl mx-auto markdown-body px-4">
       <div
         className={markdownStyles["markdown"]}
         dangerouslySetInnerHTML={{ __html: content }}
