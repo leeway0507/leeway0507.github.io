@@ -1,5 +1,5 @@
 ---
-publish: false
+publish: true
 title: "리액트 렌더링"
 desc: "Bert From Scratch"
 category: ["frontend"]
