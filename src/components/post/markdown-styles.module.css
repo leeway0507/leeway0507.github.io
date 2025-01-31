@@ -1,0 +1,168 @@
+.markdown {
+  @apply leading-relaxed;
+}
+
+.markdown p {
+  @apply py-3 text-justify break-all
+}
+
+.markdown p code {
+  @apply bg-code px-1.5 py-1 mx-0.5 rounded font-medium text-code-size font-mono;
+}
+
+.markdown ul,
+.markdown ol,
+.markdown blockquote {
+  @apply my-1;
+}
+
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4 {
+  @apply mt-10 leading-snug text-main font-semibold;
+}
+
+.markdown h1,
+.markdown h2,
+.markdown h3 {
+  @apply border-b border-accent-1 pb-2;
+}
+
+.markdown h1 {
+  @apply text-3xl
+}
+
+.markdown h2 {
+  @apply text-2xl
+}
+
+.markdown h3 {
+  @apply text-xl
+}
+
+.markdown h4 {
+  @apply text-lg
+}
+
+
+.markdown strong {
+  @apply font-bold
+}
+
+
+.markdown img+a>em {
+  @apply flex justify-center my-1
+}
+
+.markdown a {
+  @apply text-main cursor-pointer text-link
+}
+
+.markdown ul {
+  @apply ps-4 lg:ps-8
+}
+
+.markdown ol>li {
+  @apply ms-4 ps-2 list-decimal
+}
+
+.markdown ul>li {
+  @apply list-disc
+}
+
+.markdown ul>li>p {
+  @apply py-1
+}
+
+
+.markdown pre {
+  @apply overflow-auto
+}
+
+
+.markdown figure[data-rehype-pretty-code-figure] {
+  @apply pb-6
+}
+
+.markdown figure[data-rehype-pretty-code-figure] pre {
+  @apply rounded-lg mb-0
+}
+
+.markdown figure[data-rehype-pretty-code-figure] code {
+  @apply px-6 py-4
+}
+
+.markdown span[data-line] {
+  @apply text-xs pb-1
+}
+
+.markdown tbody {
+  @apply gap-1
+}
+
+/* blockquote */
+
+.markdown blockquote {
+  @apply border-s-4 border-main/50 text-main/80 ps-4 my-3
+}
+
+.markdown blockquote>p:first-child {
+  @apply py-0
+}
+
+.markdown blockquote>p:last-child {
+  @apply py-0
+}
+
+.markdown blockquote>p {
+  @apply py-1
+}
+
+/* table */
+
+.markdown table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  overflow: auto;
+  padding-bottom: 2.5rem;
+}
+
+.markdown td,
+.markdown th {
+  padding: 0;
+}
+
+.markdown table th {
+  font-weight: 400;
+}
+
+.markdown table th,
+.markdown table td {
+  padding: 6px 13px;
+  border: 1px solid #d0d7de;
+}
+
+.markdown table td>:last-child {
+  margin-bottom: 0;
+}
+
+.markdown table tr {
+  /* background-color: #ffffff; */
+  border-top: 1px solid hsla(210, 18%, 87%, 1);
+}
+
+
+
+.markdown table img {
+  background-color: transparent;
+}
+
+
+/* katex */
+.markdown .katex {
+  @apply py-4 my-4
+}
