@@ -7,13 +7,13 @@
 }
 
 .markdown p code {
-  @apply bg-[#656c7633] px-2 py-1 mx-1 rounded font-light text-xs font-mono;
+  @apply bg-[#656c7633] px-1 py-1 mx-0.5 rounded font-light text-xs font-mono;
 }
 
 .markdown ul,
 .markdown ol,
 .markdown blockquote {
-  @apply my-6;
+  @apply my-1;
 }
 
 .markdown h1,
@@ -47,7 +47,7 @@
 
 
 .markdown strong {
-  @apply text-main font-medium
+  @apply font-bold
 }
 
 
@@ -57,6 +57,10 @@
 
 .markdown ul {
   @apply ps-4 lg:ps-8
+}
+
+.markdown ol>li {
+  @apply ms-4 ps-2 list-decimal
 }
 
 .markdown ul>li {
@@ -100,11 +104,19 @@
 /* blockquote */
 
 .markdown blockquote {
-  @apply border-s-4 border-main/50 text-main/80 ps-4 my-4
+  @apply border-s-4 border-main/50 text-main/80 ps-4 my-3
+}
+
+.markdown blockquote>p:first-child {
+  @apply py-0
+}
+
+.markdown blockquote>p:last-child {
+  @apply py-0
 }
 
 .markdown blockquote>p {
-  @apply py-3
+  @apply py-1
 }
 
 /* table */
