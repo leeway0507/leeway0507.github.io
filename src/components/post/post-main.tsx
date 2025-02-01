@@ -3,12 +3,14 @@ import markdownStyles from "./markdown-styles.module.css";
 import { useEffect } from "react";
 import mediumZoom from "medium-zoom";
 import Giscus from "@giscus/react";
+import { Toc } from "@/lib/markdownToHtml";
 
 type Props = {
   content: string;
+  toc: Toc
 };
 
-export function PostBody({ content }: Props) {
+export function PostBody({ content, toc }: Props) {
   useEffect(() => {
     const zoom = mediumZoom(".markdown-body img");
 
@@ -17,8 +19,25 @@ export function PostBody({ content }: Props) {
     };
   }, []);
 
+  const TableOfContents = () => (
+    <div>
+      <div className="text-2xl font-semibold">목차</div>
+      <nav id="toc" className="p-2">
+        <ul>
+          {toc.map((item) => (
+            <li key={item.id} style={{ marginLeft: `${(item.depth - 1) * 14}px`, }}>
+              <a href={`#${item.id}`} className="text-link">{item.numbering}</a>
+              {item.title}
+            </li>)
+          )}
+        </ul>
+      </nav>
+    </div>
+  );
+
   return (
     <main className=" 2xl:max-w-3xl mx-auto markdown-body px-4">
+      <TableOfContents />
       <div
         className={markdownStyles["markdown"]}
         dangerouslySetInnerHTML={{ __html: content }}

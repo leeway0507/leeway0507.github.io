@@ -15,8 +15,9 @@ const config: Config = {
       },
       colors: {
         "nav": '#203862',
-        "main": '#f2f2f2',
-        "accent-1": "#FAFAFA",
+        "main": '#ECECEC',
+        "link": "#9dc0fa",
+        "accent-1": "#878787",
         "accent-2": "#EAEAEA",
         "accent-7": "#333",
         success: "#0070f3",

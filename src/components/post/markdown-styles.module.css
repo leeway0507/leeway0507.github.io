@@ -20,7 +20,17 @@
 .markdown h2,
 .markdown h3,
 .markdown h4 {
-  @apply mt-10 leading-snug text-main/95 font-medium;
+  @apply mt-10 leading-snug text-main font-semibold;
+}
+
+.markdown h1,
+.markdown h2,
+.markdown h3 {
+  @apply border-b border-accent-1 pb-2;
+}
+
+.markdown h1 {
+  @apply text-3xl
 }
 
 .markdown h2 {
@@ -42,7 +52,7 @@
 
 
 .markdown a {
-  @apply text-main underline cursor-pointer hover:text-blue-700 transition-all duration-500
+  @apply text-main cursor-pointer text-link
 }
 
 .markdown ul {

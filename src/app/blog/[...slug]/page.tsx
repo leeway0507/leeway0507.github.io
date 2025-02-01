@@ -15,7 +15,7 @@ export default async function Post({ params }: { params: { slug: string[] } }) {
     return notFound();
   }
 
-  const content = await markdownToHtml(post.content || "");
+  const { content, toc } = await markdownToHtml(post.content || "");
 
   return (
     <div className="max-w-2xl 2xl:max-w-3xl mx-auto">
@@ -26,7 +26,7 @@ export default async function Post({ params }: { params: { slug: string[] } }) {
           date={post.date}
           category={post.category}
         />
-        <PostBody content={content} />
+        <PostBody content={content} toc={toc} />
       </article>
     </div>
   );
