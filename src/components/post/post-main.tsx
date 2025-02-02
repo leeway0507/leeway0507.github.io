@@ -36,7 +36,7 @@ export function PostBody({ content, toc }: Props) {
   );
 
   return (
-    <main className=" 2xl:max-w-3xl mx-auto markdown-body px-4">
+    <main className=" 2xl:max-w-3xl mx-auto markdown-body px-3">
       <TableOfContents />
       <div
         className={markdownStyles["markdown"]}
