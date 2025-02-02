@@ -76,7 +76,7 @@ $Attention(Q,K,V)= \mathrm{softmax} \left( \frac{Q K^\text{T}}{\sqrt{d_k}} \righ
 
 **Q** : Query Vector,&nbsp; **K** : Key Vector,&nbsp; **V** : Value Vector,&nbsp; **${d_k} $** : Self-Attention 크기(64)
 
-### Step 1: Create three vectors(Q,K,V) from each of the encoder’s input vectors
+### Step 1 Create three vectors(Q,K,V) from each of the encoder’s input vectors
 
 Attention이 문장 내 토큰의 중요도를 계산하는 방식은 검색 시스템을 모방한 것이라고 합니다. 예로들어 사용자가 구글 검색을 한다면, 검색에 활용한 단어 또는 문장과 같은 기능은 query에 대응되고, 페이지 제목, 설명, 태그와 같이 검색에 활용되는 index는 key에 대응되며, 검색을 통해 얻은 결과는 Value에 대응됩니다.
 
@@ -86,7 +86,7 @@ Attention을 구하기 위해 필요한 Query, Key, Value는 Encoder의 Input Da
 
 <br/>
 
-### Step 2: Calculate a score
+### Step 2 Calculate a score
 
 앞서 Attention이 단어간 중요도를 파악하는 방식은 검색 엔진을 모방했다고 말씀드렸습니다. Score을 구하는 과정은 검색엔진이 query와 index를 비교해 어떤 내용을 수집할지를 판단하는 과정과 유사합니다. Attention Token 하나와 문장 전체의 연관성을 비교하는 방법으로 Score을 구합니다. 이때 문장 내 모든 토큰이 한번씩 Query 역할을 수행하므로 모든 Token에 대한 Score을 구합니다.
 
@@ -96,19 +96,19 @@ Attention을 구하기 위해 필요한 Query, Key, Value는 Encoder의 Input Da
 
 <br/>
 
-### Step 3: Divide the score by $\sqrt{d_k}$
+### Step 3 Divide the score by $\sqrt{d_k}$
 
 score의 절대적인 크기를 감소시키기 위해 Score을 $\sqrt{d_k}$ 나눕니다. Score을 $\sqrt{d_k}$로 나눠야 하는 이론적인 근거는 없고 경험적으로 봤을 때 더 나은 성능을 보장하기 때문에 사용한다고 합니다.
 
 <br/>
 
-### Step 4: Pass the result through a softmax operation
+### Step 4 Pass the result through a softmax operation
 
 이제 score을 0 ~ 1 사이로 조정하기 위해 softmax를 사용합니다. 조정이 끝난 score들은 query와 연관성 높은 key일수록 1에 근접한 값을, 낮을수록 0에 근접한 값을 부여받게 됩니다.
 
 <br/>
 
-### Step 5: Multiply each value vector by the softmax score
+### Step 5 Multiply each value vector by the softmax score
 
 개별 score는 0 ~ 1 사이의 값을 갖고 있습니다. score과 value를 곱해 얻은 결과인 Attention은 단어 별 가중치가 반영된 embedding이라 할 수 있습니다.
 
@@ -116,7 +116,7 @@ score의 절대적인 크기를 감소시키기 위해 Score을 $\sqrt{d_k}$ 나
 
   <br/>
 
-### Step 6 : Sum up the weighted value vector which produces the output of the self-attention layer at this position
+### Step 6: Sum up the weighted value vector which produces the output of the self-attention layer at this position
 
 지금까지 Step 1 ~ 5를 통해 얻은 결과는 (token_len, d_k) 차원의 Self-Attention입니다. 여러 번 언급했듯 Self-Attention을 병합한 것이 Multi-head Attention이 므로 앞선 방법과 동일하게 7개의 Self-Attention을 구한 뒤 병합(concatenation)하면 Multi-head Attention이 됩니다.
 
