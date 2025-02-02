@@ -1,3 +1,5 @@
+import { FaGithub } from "react-icons/fa6";
+
 import Link from "next/link";
 const Nav = () => {
   return (
@@ -12,7 +14,7 @@ const Nav = () => {
             target="_blank"
             rel="noreferer"
           >
-            깃허브
+            <FaGithub size={"24px"} />
           </Link>
         </div>
       </div>
