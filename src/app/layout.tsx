@@ -14,14 +14,9 @@ export const viewport: Viewport = {
   width: "device-width",
 };
 
-const font = IBM_Plex_Sans_KR({
-  weight: ["100", "200", "300", "400", "500", "600", "700"],
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_URL!),
-  title: `Yangoos Github Blog`,
+  title: `Yangoos Blog`,
   description: `데이터를 종합해 정보를 만듭니다.`,
   openGraph: {
     images: "/og/og-default.png",

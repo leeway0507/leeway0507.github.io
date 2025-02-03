@@ -17,7 +17,7 @@ export default async function Index({ params }: { params: { slug: string } }) {
       : allPosts.filter((v) => v.category.includes(filterName));
 
   return (
-    <div className="max-w-2xl 2xl:max-w-3xl mx-auto">
+    <div className="max-w-3xl 2xl:max-w-3xl mx-auto">
       <PostCardGroup params={filterName} posts={filteredPosts} />
     </div>
   );

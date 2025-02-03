@@ -18,7 +18,7 @@ export default async function Post({ params }: { params: { slug: string[] } }) {
   const { content, toc } = await markdownToHtml(post.content || "");
 
   return (
-    <div className="max-w-2xl 2xl:max-w-3xl mx-auto">
+    <div className="max-w-3xl mx-auto">
       <JsonLDComponent post={post} />
       <article className="mb-32">
         <PostHeader

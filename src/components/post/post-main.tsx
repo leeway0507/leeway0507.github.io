@@ -24,11 +24,13 @@ export function PostBody({ content, toc }: Props) {
       <div className="text-2xl font-semibold">목차</div>
       <nav id="toc" className="p-2">
         <ul>
-          {toc.map((item) => (
-            <li key={item.id} style={{ marginLeft: `${(item.depth - 1) * 14}px`, }}>
+          {toc.map((item) => {
+            const x = (item.depth - 1) * 14
+            return <li key={item.id} style={{ marginLeft: `${x}px`, }}>
               <a href={`#${item.id}`} className="text-link">{item.numbering}</a>
               {item.title}
-            </li>)
+            </li>
+          }
           )}
         </ul>
       </nav>
@@ -36,7 +38,7 @@ export function PostBody({ content, toc }: Props) {
   );
 
   return (
-    <main className=" 2xl:max-w-3xl mx-auto markdown-body px-3">
+    <main className=" 2xl:max-w-3xl mx-auto markdown-body px-2.5">
       <TableOfContents />
       <div
         className={markdownStyles["markdown"]}

@@ -16,6 +16,8 @@ const config: Config = {
       colors: {
         "nav": '#203862',
         "main": '#ECECEC',
+        "main-bg": "#1c1d1f",
+        "code": "#656c7633",
         "link": "#9dc0fa",
         "accent-1": "#878787",
         "accent-2": "#EAEAEA",
@@ -30,10 +32,8 @@ const config: Config = {
         tighter: "-.04em",
       },
       fontSize: {
-        "5xl": "2.5rem",
-        "6xl": "2.75rem",
-        "7xl": "4.5rem",
-        "8xl": "6.25rem",
+        "main-size": "1rem",
+        "code-size": "0.9rem"
       },
       boxShadow: {
         sm: "0 5px 10px rgba(0, 0, 0, 0.12)",

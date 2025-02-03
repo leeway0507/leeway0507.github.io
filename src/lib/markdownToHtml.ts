@@ -31,7 +31,7 @@ const remarkHeadingNumbering = () => (tree: any) => {
     const numbering = headingCount.slice(0, depth).join(".") + ". ";
     const textNode = node.children.find((child: any) => child.type === "text");
     const text = textNode ? textNode.value : "";
-    const id = (numbering + text).toLowerCase().replace(/\s+/g, "-").replaceAll(".", "");
+    const id = (numbering + text).toLowerCase().replace(/\s+/g, "-").replace(":", "").replaceAll(".", "");
 
 
     // TOC 저장
