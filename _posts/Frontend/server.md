@@ -306,7 +306,7 @@ const Comments = lazy(() => import('./Comments.js'));
 
 
 ## 서버 컴포넌트
-서버 컴포넌트는 서버를 (클라이언트에서 수행되는)리액트 렌더 단계에서 활용하려는 아이디어에서 비롯했습니다. 기본 동작 방식은 이러합니다. 리액트 컴포넌트 중 서버에서 처리 할 수 있는 컴포넌트는 서버에서 처리되고, 중간 결과를 브라우저에 제공합니다. 브라우저는 서버에서 처리할 수 없는 컴포넌트를 처리한 뒤, 서버로부터 받은 중간 결과물을 합쳐서 리액트 렌더의 최종 결과물인 UI 데이터(=Virtual Dom)을 생성합니다.
+서버 컴포넌트는 서버를 (클라이언트에서 수행되는)리액트 렌더 단계에서 활용하려는 아이디어에서 비롯했습니다. 기본 동작 방식은 이러합니다. 리액트 컴포넌트 중 서버에서 처리 할 수 있는 컴포넌트는 서버에서 처리되고, 중간 결과를 브라우저에 제공합니다. 브라우저는 브라우저에서만 처리할 수 있는 클라이언트 컴포넌트를 처리한 뒤, 서버로부터 받은 중간 결과물을 합쳐서 리액트 렌더의 최종 결과물인 UI 데이터(=Virtual Dom)을 생성합니다.
 
 > 서버 컴포넌트를 이해하려면 `리액트 렌더`에 대한 이해가 선행되어야 합니다. 리엑트 렌더에 대한 이해가 필요하다면 [[React] 다양한 의미로 쓰이는 렌더링 이해하기 - 리액트 렌더링](https://leeway0507.github.io/blog/Frontend/server#3-%EB%A6%AC%EC%95%A1%ED%8A%B8-%EB%A0%8C%EB%8D%94%EB%A7%81)를 참고하세요.
 
@@ -404,7 +404,7 @@ const Comments = lazy(() => import('./Comments.js'));
 서버 컴포넌트는 하나의 언어, 하나의 프레임워크를 사용함에도 SSR과 CSR의 장점에 접근할 수 있게 합니다. 
 
 
-### 서버 컴포넌트 렌더 절차
+### 서버 컴포넌트 렌더 순서
 
 서버 컴포넌트를 사용하려면 Next.js와 같은 프레임워크를 사용해야한다. 이를 프레임워크에서만 제공하는 이유로는 서버 컴포넌트가 번들러에 의존을 깊게 해야하기 때문과 개발자들에게 서버 컴포넌트를 사용하는 예시로서 제공하기 위함이라고 한다.
 
@@ -467,9 +467,9 @@ const Comments = lazy(() => import('./Comments.js'));
 
   * 이러한 이유 때문에 Server Component는 HTML 대신 렌더링된 UI의 데이터를 반환합니다.
 
-### 서버 컴포넌트 구현
+### 서버 컴포넌트 활용
 
-실제로 서버 컴포넌트가 어떻게 활용되는지를 [[Github] Server-Component-Demo](https://github.com/reactjs/server-components-demo) 코드를 통해 알아보겠습니다.
+실제로 서버 컴포넌트가 어떻게 활용될 수 있는지 [[Github] Server-Component-Demo](https://github.com/reactjs/server-components-demo)를 통해 알아보겠습니다.
 
 ####  폴더 구조
 
@@ -482,10 +482,12 @@ src
 --App.js // 메인 컴포넌트
 ...js files // 기타 컴포넌트
 ```
-폴더 구조는 크게 서버 역할을 수행하는 `server` 폴더, 프레임워크 역할을 수행하는 `src/framework` 폴더 , App.js를 포함해 기타 컴포넌트가 포함된 `src`가 존재합니다. 
+폴더 구조는 크게 서버 역할을 수행하는 `server` 폴더, 프레임워크 역할을 수행하는 `src/framework` 폴더 , `App.js`를 포함해 기타 컴포넌트가 포함된 `src`가 존재합니다. 
+
+
 서버 컴포넌트는 기본적으로 프레임워크와 함께 사용하는 것을 가정하기 때문에 `src/framework`의 코드가 실제 프레임워크 역할을 대신합니다.
 
-1. 사용자가 메인 페이지(`/`)에 접속하면 아래의 HTML을 전송받고 `main.js`를 실행해 리액트 렌더를 시작합니다. 
+1. 사용자가 메인 페이지(`/`)에 접속하면 서버로부터 아래의 HTML을 전송받고 `main.js`를 실행해 리액트 렌더를 시작합니다. 
 
     ```jsx
     // build/index.html
@@ -524,10 +526,10 @@ src
     </html>
     ```
 
-    main.js는 webpack 부트스트랩으로, 프로젝트 전체 코드가 담긴 파일입니다. 약 44,000줄 되는 하나의 즉시 실행 함수(IIFE)로서 프로젝트에 포함된 기능들을 initialize 합니다.
+    main.js는 webpack 부트스트랩으로, 프로젝트 전체 코드가 번들된 파일입니다. 약 44,000줄 되는 하나의 즉시 실행 함수(IIFE)로서 프로젝트에 포함된 기능들을 initialize 합니다.
   
   
-    main.js 코드 최하단에는 리액트를 렌더하는 코드가 위치하며, 모든 로드가 처리된 다음 가장 마지막으로 실행됩니다. 해당 코드는 번들링된 상태이므로 가독성이 좋지않아, 번들링 이전의 코드를 첨부하였으니 참고바랍니다.
+    리액트를 렌더하는 코드는 main.js 코드 최하단에는 위치하여 가장 마지막으로 실행됩니다. 해당 코드는 번들링된 상태이므로 가독성이 좋지않아, 번들링 이전의 코드를 첨부하였으니 참고바랍니다.
 
     > 번들링 되기전 코드는 `./src/framework/bootstrap.js`에 위치하며, 브라우저에서 실제 실행되는 코드는 `main.js`의 43361번째 줄입니다.
 
@@ -555,7 +557,7 @@ src
     > router 함수는 `./src/framework/router.js`에 위치하며, `main.js`에는 40번째 줄에 있습니다.
 
 
-2. Router 컴포넌트는 초기 로딩 시 content를 불러옵니다. `createFromFetch(fetch('/react?location=' + encodeURIComponent(locationKey)));`를 실행하면 `promise` 객체를 반환합니다. 
+2. Router 컴포넌트는 초기 로딩 시 content를 불러옵니다. `createFromFetch(fetch('/react?location=' + encodeURIComponent(locationKey)));`를 실행하면, 브라우저에서 fetch를 실행했으므로 처리 결과가 아닌 `promise` 객체를 반환합니다. 
 이 promise 객체는 함수 하단 [use](https://react.dev/reference/react/use)(content)에서 resolve 됩니다. 
 
     content를 받아오는 순서는 1. 서버로부터 binary JSON 유형의 response를 받고(`fetch`), 2. `createFromFetch`를 통해 binary JSON을 String으로 1차 가공한 뒤 최종적으로 JS 객체로 변환합니다.
