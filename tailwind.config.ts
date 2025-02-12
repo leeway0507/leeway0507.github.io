@@ -32,7 +32,7 @@ const config: Config = {
         tighter: "-.04em",
       },
       fontSize: {
-        "main-pc": "1.125rem",
+        "main-pc": "1.1rem",
         "main-mobile": "1rem",
         "code-size": "0.95rem"
       },

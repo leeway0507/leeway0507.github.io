@@ -10,7 +10,7 @@ function PostInfo({ category, date }: { category: string[]; date: string }) {
           </span>
         ))}
       </div>
-      <DateFormatter dateString={date} />
+      {/* <DateFormatter dateString={date} /> */}
     </div>
   );
 }
