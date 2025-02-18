@@ -167,7 +167,7 @@ SequenceClassification 구조를 이해했으니 이제 BaseModel을 Text classi
 
 모델이 예측해야하는 output은 5개(평점 1~5점)이므로 모델을 불러올 때 필요한 num_label을 5로 설정합니다.
 
-> Tokenizing, TrainingArguments, Trainer, Callback에 대한 설명은 [ELECTRA 학습 구조 소개 및 Domain Adaptation 수행하기](https://yangoos57.github.io/blog/DeepLearning/paper/Electra/electra/)에서 다루고 있으니 생략하겠습니다.
+> Tokenizing, TrainingArguments, Trainer, Callback에 대한 설명은 [ELECTRA 학습 구조 소개 및 Domain Adaptation 수행하기](https://yangoos57.github.io/blog/deep-learning/paper/Electra/electra/)에서 다루고 있으니 생략하겠습니다.
 
 ```python
 
