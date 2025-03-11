@@ -13,7 +13,7 @@ desc: "pytorch를 활용해 ELECTRA 논문을 코드로 구현하며 Generator�
 
 이 글은 ELECTRA를 🤗 Transformers를 활용해 Domain Adaptation하는 방법에 대해 설명합니다. 이외에도 🤗 Transformers 개념과 Trainer, Dataset 등 기본적인 사용법 또한 포함하고 있으므로 🤗 Transformers에 대해 궁금한 경우에도 이 글을 참고하실 수 있습니다.
 
-- Domain Adaptation 개념을 알고싶다면 [[NLP] Further Pre-training 및 Fine-tuning 정리](https://yangoos57.github.io/blog/deep-learning/paper/Finetuning/Finetuning)를 참고바랍니다.
+- Domain Adaptation 개념을 알고싶다면 [[NLP] Further Pre-training 및 Fine-tuning 정리](https://leeway0507.github.io/blog/deep-learning/paper/Finetuning/Finetuning)를 참고바랍니다.
 
 - ELECTRA 학습 구조는 [lucidrains의 electra-pytorch](https://github.com/lucidrains/electra-pytorch) 코드를 참고했으며, 🤗 Transformers로 구현하기 위해 일부 코드를 수정하였습니다.
 
@@ -92,7 +92,7 @@ Domain Adaptation은 Pre-trained 모델을 특정 분야(Domain)에 적합한 �
 
 Domain Adaptation의 유의어가 Further Pre-training이라는 점에서 알 수 있듯, Domain Adaptation을 구현함으로서 Pre-training이 진행되는 과정을 이해할 수 있습니다. 따라서 이 글은 ELECTRA에 대해 Domain Adaptation을 수행하는 방법을 설명하지만 사용자에 필요에 따라선 이 방법을 Pre-training을 위해 적용해 새로운 모델을 만들 수도 있습니다.
 
-> Domain Adaptation에 대한 추가 설명이 필요한 경우 [[NLP] Domain Adaptation과 Finetuning 개념 정리](https://yangoos57.github.io/blog/deep-learning/paper/Finetuning/Finetuning/)을 참고해주세요.
+> Domain Adaptation에 대한 추가 설명이 필요한 경우 [[NLP] Domain Adaptation과 Finetuning 개념 정리](https://leeway0507.github.io/blog/deep-learning/paper/Finetuning/Finetuning)을 참고해주세요.
 
 <br/>
 

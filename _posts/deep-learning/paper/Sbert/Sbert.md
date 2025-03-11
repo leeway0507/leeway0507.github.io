@@ -165,7 +165,7 @@ class classificationHead(nn.Module):
 
 ### Cross-Encoder 학습
 
-Cross-Encoder를 실제 학습하는 과정은 [Cross-Encoder 학습 튜토리얼(Jupyter Notebook)](https://github.com/yangoos57/Sentence_bert_from_scratch/blob/main/1.Bi_Encoder_%26_Cross_Encoder/%5Btutorial%5D%20Cross-Encoder.ipynb)을 참고하시기 바랍니다. 해당 튜토리얼은 🤗 Transformers를 활용해 작성되었으므로 Huggingface에 익숙하지 않으신 분들은 추가적으로 [링크](https://yangoos57.github.io/blog/deep-learning/paper/Electra/electra/)를 참고하시기 바랍니다.
+Cross-Encoder를 실제 학습하는 과정은 [Cross-Encoder 학습 튜토리얼(Jupyter Notebook)](https://github.com/yangoos57/Sentence_bert_from_scratch/blob/main/1.Bi_Encoder_%26_Cross_Encoder/%5Btutorial%5D%20Cross-Encoder.ipynb)을 참고하시기 바랍니다. 해당 튜토리얼은 🤗 Transformers를 활용해 작성되었으므로 Huggingface에 익숙하지 않으신 분들은 추가적으로 [링크](https://leeway0507.github.io/blog/deep-learning/paper/Electra/electra)를 참고하시기 바랍니다.
 
 ## Bi-Encoder
 
@@ -183,7 +183,7 @@ Cross-Encoder를 실제 학습하는 과정은 [Cross-Encoder 학습 튜토리�
 
 <img src='/assets/blog/deeplearning/paper/Sbert/img4.png' alt='img4'>
 
-> Huggingface에 대해 익숙하지 않은 경우 [ELECTRA 모델 구현 및 Domain Adaptation 방법 정리](https://yangoos57.github.io/blog/deep-learning/paper/Electra/electra/)를 참고
+> Huggingface에 대해 익숙하지 않은 경우 [ELECTRA 모델 구현 및 Domain Adaptation 방법 정리](https://leeway0507.github.io/blog/deep-learning/paper/Electra/electra)를 참고
 
 ```python
 from transformers import ElectraModel, ElectraTokenizer
