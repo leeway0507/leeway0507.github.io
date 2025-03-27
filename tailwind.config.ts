@@ -22,6 +22,8 @@ const config: Config = {
         "accent-1": "#878787",
         "accent-2": "#EAEAEA",
         "accent-7": "#333",
+        "pocard-bg": '#EEEAE3',
+        "potext": "#fff",
         success: "#0070f3",
         cyan: "#79FFE1",
       },

@@ -4,7 +4,7 @@ import Link from "next/link";
 const Nav = () => {
   return (
     <div className="absolute left-0 top-0 h-[55px] bg-nav w-full flex items-center z-50">
-      <div className="w-full mx-auto flex justify-between items-center max-w-2xl 2xl:max-w-3xl text-white px-4">
+      <div className="w-full mx-auto flex justify-between items-center max-w-3xl 2xl:max-w-3xl text-white max-sm:px-2">
         <Link href={"/"} className="w-full font-medium md:text-lg ">
           데이터를 종합해 정보를 만듭니다.
         </Link>

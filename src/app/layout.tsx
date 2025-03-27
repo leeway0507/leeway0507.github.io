@@ -3,9 +3,9 @@ import Script from "next/script";
 import "./globals.css";
 import { Viewport } from "next";
 
-import Footer from "@/components/common/footer";
+
 import GoogleAnalytics from "@/components/ga4/google-analytics-4";
-import Nav from "@/components/common/nav";
+
 
 export const viewport: Viewport = {
   maximumScale: 1,
@@ -63,11 +63,9 @@ export default function RootLayout({
         <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       </head>
       <body className={`h-lvh flex flex-col w-full `}>
-        <Nav />
-        <div className="pt-[55px] px-2 mx-auto w-full grow">
+
           {children}
-        </div>
-        <Footer />
+
       </body>
     </html>
   );

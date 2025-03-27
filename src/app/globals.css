@@ -3,23 +3,35 @@
 @tailwind utilities;
 
 .no-scrollbar::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .no-scrollbar {
-    -ms-overflow-style: none;
-    /* IE and Edge */
-    scrollbar-width: none;
-    /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 html {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-    line-height: 1.5;
-    word-wrap: break-word;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  line-height: 1.5;
+  word-wrap: break-word;
 }
 
 html {
-    @apply bg-main-bg text-main text-main-mobile lg:text-main-pc
+  @apply bg-main-bg text-main text-main-mobile lg:text-main-pc;
+}
+
+.page {
+  @apply max-w-2xl mx-auto my-8 space-y-16 leading-8;
+}
+.page .sub_title {
+  @apply text-xl font-semibold;
+}
+.page .content {
+  @apply space-y-20;
 }
