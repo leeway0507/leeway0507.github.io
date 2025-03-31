@@ -27,7 +27,7 @@ html {
 }
 
 .page {
-  @apply max-w-2xl mx-auto my-8 space-y-16 leading-8;
+  @apply max-w-2xl mx-auto my-8 space-y-16 leading-8 text-justify;
 }
 .page .sub_title {
   @apply text-xl font-semibold;

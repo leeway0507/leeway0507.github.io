@@ -2,18 +2,8 @@ import Image from "next/image";
 import "../portfolio.module.css";
 import Transition from "../motion";
 import Back from "../back";
-import {
-  Aws,
-  Node,
-  Go,
-  Nextjs,
-  Python,
-  Tailwind,
-  Typescript,
-  Playwright,
-} from "../skill";
+import { Aws, Node, Go, Nextjs, Python, Tailwind, Playwright } from "../skill";
 import Link from "next/link";
-import { HiLightBulb } from "react-icons/hi";
 
 export default async function CapturedTable() {
   return (
@@ -39,7 +29,7 @@ function Intro() {
         />
       </div>
       <div className="space-y-6 mx-auto">
-        <div>
+        <div className="tracking-tight">
           CAPTURED TABLE은 해외 프리미엄 편집샵 제품의 실제 구매 비용을 투명하게
           제공하는 서비스입니다.
         </div>
@@ -100,9 +90,9 @@ function Service() {
         <div>
           이러한 복잡한 요소들을 찾아 정리하고 기술적으로 정의하여, 소비자가
           한번에 이해할 수 있는 투명한 가격 정보를 생산하였습니다. 사용자는
-          복잡한 계산 과정 없이 지불해야 할 최종 금액을 바탕으로 제품 간 가격
-          비교가 가능하며, 이를통해 해외 직구의 불확실성을 줄이고 합리적인 구매
-          결정을 내릴 수 있습니다.
+          복잡한 계산 과정 없이 지불해야 할 최종 금액을 바탕으로 제품 간 가격을
+          비교하여 해외 직구의 불확실성을 줄이고 합리적인 구매 결정을 내릴 수
+          있습니다.
         </div>
       </div>
       <video width="full" height="full" controls autoPlay loop muted>
@@ -120,7 +110,7 @@ function SelectShop() {
       <div className="mx-auto space-y-8">
         <h1 className="sub_title">편집샵 정책 데이터</h1>
         <div>
-          30여 개의 해외 프리미엄 편집샵에서의 직구 경험을 바탕으로, 편집샵별
+          20여 개의 해외 프리미엄 편집샵에서의 직구 경험을 바탕으로, 편집샵별
           구매가에 영향을 미치는 다양한 서비스 정책을 데이터로 정의하고 이를
           수집하였습니다. 각 편집샵의 세금 정책, 배송비 체계, 관부가세 처리
           방식, 할인율 등은 최종 구매가를 계산하는 변수로 활용되었습니다.
