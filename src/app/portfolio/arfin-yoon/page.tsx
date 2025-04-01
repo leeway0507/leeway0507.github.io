@@ -33,8 +33,8 @@ function Intro() {
       <div className="space-y-6 mx-auto">
         <div>
           포토그래퍼 윤치호의 포트폴리오를 Next.js의 SSG를 활용해
-          제작하였습니다. 이 과정에서 대량의 고해상도 이미지를 효율적으로
-          처리하는 방법을 익혔습니다.
+          제작하였습니다. 이 과정에서 대량의 고해상도 이미지로 인한 메모리 초과
+          문제를 분석하고, sharp.js를 활용해 이미지 최적화를 구현하였습니다.
         </div>
       </div>
       <Link
@@ -80,7 +80,7 @@ function ProblemSolving() {
     <div className="space-y-8">
       <h1 className="sub_title">대량의 고해상도 이미지 처리</h1>
       <div className="flex gap-8 px-2">
-        <div className="basis-1/3 relative grow bg-red-200">
+        <div className="basis-1/3 relative grow">
           <video width="full" height="full" controls autoPlay loop>
             <source
               src={"/portfolio/arfin-yoon/gallery-error.mp4"}
@@ -91,32 +91,29 @@ function ProblemSolving() {
         <div className="basis-2/3 space-y-6">
           <div className="space-y-2">
             <div className="text-lg">문제정의</div>
-            <div>
-              Gallery 실행 시 대량 이미지 로드에 의한 부하 발생 및 페이지 다운
-            </div>
+            <div>Gallery 기능 사용 시 대량 이미지 로드에 의한 페이지 다운</div>
           </div>
           <div className="space-y-2">
             <div className="text-lg">원인분석</div>
             <ul className="w-full space-y-4 list-disc ps-4">
               <li>
-                서버에서만 문제 발생하는 것으로 보아 Cloudflare 서비스 정책이
-                원인으로 추정{" "}
-                <span className="text-sm ps-2 text-gray-400">
-                  * 무료 사용시 최대 1초의 컴퓨팅 연산만 허용
-                </span>
+                이미지 용량에 대한 최적화만 고려했기 때문에 고해상도 이미지로
+                인한 메모리 초과 오류 발생
               </li>
               <li>
-                기존 이미지 최적화 시 용량에 대한 최적화만 고려하여, 고해상도
-                (6000x8000) 이미지 사용중
+                브라우저의 이미지 렌더링 시 이미지 용량에 상관없이 실제
+                해상도(Intrinsic size)로 디코딩 되어 이미지 하나 당 192MB의
+                메모리를 사용하는 것을 확인, Gallery 사용 시 60개 이미지를
+                동시에 로드하므로 약 11.5GB 메모리 필요
               </li>
             </ul>
           </div>
           <div className="space-y-2">
             <div className="text-lg">문제해결</div>
-            <ul className="w-full space-y-4 list-disc ps-4">
-              <li>이미지를 D2 스토리지에 업로드하여 서버 처리시간 절감</li>
-              <li>이미지 최적화 시 해상도 최적화 단계 추가</li>
-            </ul>
+            <div>
+              sharp.js를 활용해 해상도와 용량 최적화 및 webp로 확장자 변경을
+              자동화한 뒤 Cloud Storage에 업로드
+            </div>
           </div>
         </div>
       </div>

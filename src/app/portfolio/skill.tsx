@@ -19,7 +19,7 @@ import { SiDocker } from "react-icons/si";
 
 function Card({ name, icon }: { name: string; icon: React.ReactElement }) {
   return (
-    <div className="flex gap-1 flex items-center text-[0.8125rem] leading-none border rounded-xl px-2 py-1 py-0.5 bg-white text-black">
+    <div className="flex gap-1 flex items-center text-[0.8125rem] leading-none border rounded-xl px-2 py-0.5 bg-white text-black">
       <div>{icon}</div>
       <div>{name}</div>
     </div>

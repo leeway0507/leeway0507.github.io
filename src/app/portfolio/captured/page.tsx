@@ -4,7 +4,6 @@ import Transition from "../motion";
 import Back from "../back";
 import { Go, Nextjs, Tailwind, Typescript, Mysql, Node, Aws } from "../skill";
 import Link from "next/link";
-import { Fugaz_One } from "next/font/google";
 
 export default async function Captured() {
   return (
@@ -16,20 +15,18 @@ export default async function Captured() {
   );
 }
 
-const FugazeOne = Fugaz_One({
-  weight: ["400"],
-  subsets: ["latin"],
-  display: "swap",
-});
-
 function Intro() {
   return (
     <Transition className="space-y-16 mx-auto">
       <Back />
-      <div
-        className={`text-4xl font-bold pb-2 w-full flex items-center justify-center ${FugazeOne.className} text-red-500`}
-      >
-        CAPTURED
+      <div className="relative flex justify-center py-6">
+        <Image
+          src="/portfolio/captured.svg"
+          alt="flow"
+          width={200}
+          height={100}
+          className="object-contain"
+        />
       </div>
       <div className="space-y-6 mx-auto">
         <div>
@@ -110,9 +107,9 @@ function Flow() {
         </div>
         <div>
           이 과정을 통해 어떻게 해야 사용자에게 더 편리한 UX를 제공할 수 있을지
-          실질적으로 고민하고 적용해보는 경험을 할 수 있었습니다. 이론적인
-          연구보다는 실제 사용자로서 느낀 불편함을 해소하는 데 중점을 두어 보다
-          직관적이고 사용하기 쉬운 서비스를 만들기 위해 노력했습니다.
+          실질적으로 고민하고 적용해보는 경험을 할 수 있었습니다. 실제
+          사용자로서 느낀 불편함을 해소하는 데 중점을 두어 보다 직관적이고
+          사용하기 쉬운 서비스를 만들기 위해 노력했습니다.
         </div>
       </div>
       <video width="full" height="full" controls autoPlay loop muted>
@@ -127,16 +124,16 @@ function SignUp() {
       <h1 className="sub_title">회원가입</h1>
       <div>
         NextAuth.js를 활용하여 네이버, 카카오 소셜 로그인 구현 외에도 자체
-        회원가입을 구현하였습니다. 회원가입 절차는 React-form-hook와 Zod를
-        조합하여 데이터 유효성 검증을 구현했고, AWS SMTP 서비스를 연동하여
-        이메일 인증 시스템을 구축했습니다.
+        회원가입을 구현하였습니다. 회원가입 절차는 React Hook Form과 Zod를
+        조합하여 데이터 유효성 검증을 구현했고, AWS SES SMTP를 연동하여 이메일
+        인증 시스템을 구축했습니다.
       </div>
       <div>
         회원가입 기능을 구현하며 OAuth 2.0 프로토콜의 실제 구현 방법과 JWT를
         활용한 상태 관리, 그리고 이메일 인증 프로세스 구현을 경험할 수
         있었습니다. 또한 Zod를 통한 타입 안전성 확보와 효과적인 폼 상태 관리의
         중요성을 실감하며, 사용자에게 편리하면서도 안전한 회원가입 절차를
-        설계하는 능력을 향상시킬 수 있었습니다.
+        설계하는 방법을 배울 수 있었습니다.
       </div>
       <video width="full" height="full" controls autoPlay loop muted>
         <source src={"/portfolio/captured/registration.mp4"} type="video/mp4" />
@@ -160,16 +157,16 @@ function Optimization() {
       <div className=" mx-auto space-y-8">
         <h1 className="sub_title">성능 최적화</h1>
         <div>
-          당시의 서비스는 Next.js 프레임워크의 핵심 기능과 리액트 18 서버 기능을
+          당시 서비스는 Next.js 프레임워크의 핵심 기능과 리액트 18 서버 기능을
           충분히 활용하지 못한 구조적 한계를 갖고 있었습니다. 번들 사이즈 증대
-          및 서버 내 이미지를 최적화하는 구조로 인해 초기 로딩 지연이
-          발생했습니다. 레이아웃 흔들림(CLS), 페이지 플리커링으로 사용자 경험
-          저하가 발생하였으며, 개발 시간의 30% 이상을 에러 원인 추적과 디버깅에
+          및 서버 자체에서 이미지를 최적화하는 구조로 인해 초기 로딩 지연이
+          발생했습니다. 레이아웃 흔들림(CLS)으로 사용자 경험 저하가
+          발생하였으며, 개발 시간의 30% 이상을 에러 원인 추적과 디버깅에
           할애하여 구조 개선 및 생산성 향상이 필요했습니다.
         </div>
         <div>
           당시에는 표면적으로 드러나는 문제만 해결하려 했습니다. 그러던 중 두
-          개의 React RFC를 읽으며, 기술을 바라보는 접근 방식이 근본적으로
+          편의 React RFC를 읽으며, 기술을 바라보는 접근 방식이 근본적으로
           잘못되었음을 알게 되었습니다. 기술은 결국 특정 문제를 해결하기 위해
           만들어진 것이므로, 그 태생적 배경을 이해해야 올바르게 활용할 수 있다는
           것을 깨달았습니다. React의 스트림 SSR과 서버 컴포넌트가 어떤 문제를
@@ -261,7 +258,7 @@ function InfiniteScroll() {
     <div className=" mx-auto space-y-4">
       <h1 className="sub_title">무한 스크롤</h1>
       <div>
-        InterSection Observer와 query parameter를 활용해 무한 스크롤을
+        Intersection Observer API와 query parameter를 활용해 무한 스크롤을
         구현하였습니다. 구현초기 useState, contextAPI와 같은 상태 관리를 통해
         구현하고자 했으나, 필터 기능과의 연동 문제 및 페이지 이동 시 정보 유실로
         인해 사용자 경험이 저하되는 문제가 발생했습니다.
