@@ -4,6 +4,8 @@ import { Space_Grotesk } from "next/font/google";
 import Transition from "./motion";
 import Intro from "./intro";
 import Skills from "./major-skills";
+import { BiLinkExternal } from "react-icons/bi";
+
 type Portfolio = {
   name: string;
   date: string;
@@ -93,6 +95,9 @@ function Card({ portfolio }: { portfolio: Portfolio }) {
           fill
           className={"object-contain"}
         />
+      </div>
+      <div className="absolute top-3 right-3 text-black">
+        <BiLinkExternal size={20} />
       </div>
       <div className="bottom-4 left-4 absolute w-full text-black backdrop-blur py-1">
         <div className="w-full h-full relative">

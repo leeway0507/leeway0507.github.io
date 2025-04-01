@@ -35,5 +35,4 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-#knou
-/src/app/knou-paper
+_temp_posts
