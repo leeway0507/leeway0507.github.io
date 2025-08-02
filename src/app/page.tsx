@@ -3,9 +3,13 @@ import Footer from "@/components/common/footer";
 import { PostCardGroup } from "@/components/post-card";
 import { getAllPosts } from "@/lib/api";
 
-export default async function Index({ params }: { params: { slug: string } }) {
+export default async function Index({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const allPosts = getAllPosts();
-  const { slug } = params;
+  const { slug } = await params;
   const categories = allPosts.reduce((acc, post) => {
     post.category.forEach((category) => acc.add(category));
     return acc;
@@ -20,13 +24,13 @@ export default async function Index({ params }: { params: { slug: string } }) {
 
   return (
     <>
-    <Nav />
-    <div className="pt-[55px] px-2 mx-auto w-full grow">
-    <div className="max-w-3xl 2xl:max-w-3xl mx-auto">
-      <PostCardGroup params={filterName} posts={filteredPosts} />
-    </div>
-    </div>
-    <Footer />
+      <Nav />
+      <div className="pt-[55px] px-2 mx-auto w-full grow">
+        <div className="max-w-3xl 2xl:max-w-3xl mx-auto">
+          <PostCardGroup params={filterName} posts={filteredPosts} />
+        </div>
+      </div>
+      <Footer />
     </>
   );
 }

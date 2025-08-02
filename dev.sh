@@ -19,4 +19,4 @@ cleanup() {
 cleanup
 
 cd /Users/yangwoolee/repo/blog
-npm run dev &
+pnpm run dev &

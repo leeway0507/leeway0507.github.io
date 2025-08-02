@@ -11,10 +11,6 @@ import useEmblaCarousel from "embla-carousel-react";
 import styles from "./styles.module.css";
 import Image from "next/image";
 
-type PropType = {
-  children: React.ReactElement;
-};
-
 interface CarouselImageProps extends React.ComponentProps<typeof Image> {}
 
 export function CarouselImage(props: CarouselImageProps) {

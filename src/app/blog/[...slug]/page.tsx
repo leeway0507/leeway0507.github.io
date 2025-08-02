@@ -6,10 +6,14 @@ import { PostBody } from "@/components/post/post-main";
 import { PostHeader } from "@/components/post/post-header";
 import { join } from "path";
 import { JsonLDComponent } from "@/components/post/metadata";
-import Nav from "@/components/common/nav";
 
-export default async function Post({ params }: { params: { slug: string[] } }) {
-  const post = getPostBySlug(join(...params.slug));
+export default async function Post({
+  params,
+}: {
+  params: Promise<{ slug: string[] }>;
+}) {
+  const { slug } = await params;
+  const post = getPostBySlug(join(...slug));
 
   if (!post) {
     return notFound();
@@ -35,9 +39,10 @@ export default async function Post({ params }: { params: { slug: string[] } }) {
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string[] };
+  params: Promise<{ slug: string[] }>;
 }) {
-  const post = getPostBySlug(join(...params.slug));
+  const { slug } = await params;
+  const post = getPostBySlug(join(...slug));
 
   if (!post) {
     return notFound();

@@ -1,7 +1,7 @@
 import { Post } from "@/interfaces/post";
 import Script from "next/script";
 
-export async function JsonLDComponent({ post }: { post: Post }) {
+export function JsonLDComponent({ post }: { post: Post }) {
   const { desc, title, date, category } = post;
   const jsonLd = {
     "@context": "https://schema.org",

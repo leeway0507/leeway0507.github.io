@@ -1,9 +1,13 @@
 import { PostCardGroup, PostFilter } from "@/components/post-card";
 import { getAllPosts } from "@/lib/api";
 
-export default async function Index({ params }: { params: { slug: string } }) {
+export default async function Index({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const allPosts = getAllPosts();
-  const { slug } = params;
+  const { slug } = await params;
   const param = slug.replace("-", " ");
   const categories = allPosts.reduce((acc, post) => {
     post.category.forEach((category) => acc.add(category));
